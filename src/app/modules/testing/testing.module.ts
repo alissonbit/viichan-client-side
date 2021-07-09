@@ -3,7 +3,12 @@ import { CommonModule } from '@angular/common';
 import { ApiTesterComponent } from './api-tester/api-tester.component';
 import { RouterModule } from '@angular/router';
 
-
+const routes = [
+  {
+    path: '',
+    component: ApiTesterComponent
+  }
+]
 
 @NgModule({
   declarations: [
@@ -11,8 +16,8 @@ import { RouterModule } from '@angular/router';
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild([{path: '', component: ApiTesterComponent}])
+    RouterModule.forChild(routes)
   ],
-  exports: [ RouterModule ]
+  exports: [RouterModule]
 })
 export class TestingModule { }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -8,16 +9,12 @@ import { environment } from 'src/environments/environment';
 export class CrudService {
 
   private http;
+
   constructor(http: HttpClient) {
     this.http = http;
   }
 
-  testConnection(): any {
-    try {
-      this.http.get<any>(environment.api)
-        .subscribe(response => { return response });
-    } catch (error) {
-      return error;
-    }
+  testConnection(): Observable<any> {
+    return this.http.get(environment.url, {responseType: 'text'});
   };
 }

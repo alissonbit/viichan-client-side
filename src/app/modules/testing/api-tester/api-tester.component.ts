@@ -9,13 +9,19 @@ import { CrudService } from 'src/app/crud/crud.service';
 export class ApiTesterComponent implements OnInit {
 
   crud;
+  connected: boolean = false;
 
   constructor(crud: CrudService) {
     this.crud = crud;
   }
 
   ngOnInit(): void {
-    this.crud.testConnection();
+    this.testing();
   }
 
+  testing(): void {
+    this.crud.testConnection().subscribe(response => {
+      response == 'hello vii'? this.connected=true: this.connected=false; 
+    });
+  }
 }
