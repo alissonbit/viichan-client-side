@@ -1,18 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { NotFoundComponent } from './modules/not-found/not-found.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./modules/main/main.module').then((m) => m.MainModule)
+    loadChildren: () => import('./modules/chan/chan.module').then(m => m.ChanModule)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
   },
   {
     path: 'login',
-    loadChildren: () => import('./modules/dashboard/dashboard.module').then((m) => m.DashboardModule)
+    redirectTo: 'dashboard'
   },
   {
     path: '**',
-    loadChildren: () => import('./modules/not-found/not-found.module').then((m) => m.NotFoundModule)
+    redirectTo: '404'
+  },
+  {
+    path: '404',
+    component: NotFoundComponent
   }
 ];
 
