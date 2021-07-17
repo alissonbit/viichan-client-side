@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { NotFoundComponent } from './modules/not-found/not-found.component';
+import { BanComponent } from './modules/error/ban/ban.component';
+import { NotFoundComponent } from './modules/error/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -8,20 +9,28 @@ const routes: Routes = [
     loadChildren: () => import('./modules/chan/chan.module').then(m => m.ChanModule)
   },
   {
-    path: 'dashboard',
+    path: 'user',
     loadChildren: () => import('./modules/user/user.module').then(m => m.UserModule)
   },
   {
     path: 'login',
-    redirectTo: 'dashboard'
+    redirectTo: 'user'
   },
   {
-    path: '**',
-    redirectTo: '404'
+    path: 'dashboard',
+    redirectTo: 'user'
+  },
+  {
+    path: 'ban',
+    component: BanComponent
   },
   {
     path: '404',
     component: NotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404'
   }
 ];
 

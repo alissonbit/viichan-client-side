@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FoundationComponent } from './foundation/foundation.component';
+import { InterfaceComponent } from './interface/interface.component';
 import { BoardComponent } from './board/board.component';
 import { ThreadComponent } from './thread/thread.component';
+import { LandingComponent } from './landing/landing.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: FoundationComponent,
+    component: InterfaceComponent,
     children: [
+      {
+        path: '',
+        component: LandingComponent
+      },
       {
         path: 'board',
         component: BoardComponent,
@@ -20,10 +25,6 @@ const routes: Routes = [
         ]
       }
     ]
-  },
-  {
-    path: '**',
-    redirectTo: '404'
   }
 ];
 

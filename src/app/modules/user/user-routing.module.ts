@@ -1,27 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { FoundationComponent } from '../chan/foundation/foundation.component';
+import { BackgroundComponent } from './background/background.component';
 import { LoginComponent } from './login/login.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: '',
-    component: FoundationComponent,
-    redirectTo: 'login',
+    component: BackgroundComponent,
     children: [
+      {
+        path: 'dashboard',
+        component: DashboardComponent
+      },
+      {
+        path: '',
+        redirectTo: 'dashboard'
+      },
       {
         path: 'login',
         component: LoginComponent
-      },
-      {
-        path: 'dashboard',
-        component: LoginComponent
-      },
+      }
     ]
-  },
-  {
-    path: '**',
-    redirectTo: '404'
   }
 ];
 

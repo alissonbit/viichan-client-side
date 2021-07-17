@@ -1,16 +1,18 @@
 import { NgModule } from '@angular/core';
 import { ChanRoutingModule } from './chan-routing.module';
-import { FoundationComponent } from './foundation/foundation.component';
+import { InterfaceComponent } from './interface/interface.component';
 import { BoardComponent } from './board/board.component';
 import { ThreadComponent } from './thread/thread.component';
+import { LandingComponent } from './landing/landing.component';
 
 
 
 @NgModule({
   declarations: [
-    FoundationComponent,
+    InterfaceComponent,
     BoardComponent,
-    ThreadComponent
+    ThreadComponent,
+    LandingComponent
   ],
   imports: [
     ChanRoutingModule

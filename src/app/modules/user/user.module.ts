@@ -1,19 +1,19 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { LoginComponent } from './login/login.component';
-import { FoundationComponent } from './foundation/foundation.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { BackgroundComponent } from './background/background.component';
+import { UserRoutingModule } from './user-routing.module';
 
 
 
 @NgModule({
   declarations: [
     LoginComponent,
-    FoundationComponent,
-    DashboardComponent
+    DashboardComponent,
+    BackgroundComponent
   ],
   imports: [
-    CommonModule
+    UserRoutingModule
   ]
 })
 export class UserModule { }
